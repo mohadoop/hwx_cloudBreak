@@ -12,12 +12,11 @@ EOF
 
 # Update yum and install required tools
 yum update -y
-yum -y install iptables-services net-tools docker-engine unzip tar
+yum -y install iptables-services net-tools docker unzip tar
 
 
 # OS configuraiton for Docker and CB
-systemctl enable docker.service
-systemctl start docker
+service docker start
 iptables --flush INPUT && \
 iptables --flush FORWARD && \
 service iptables save
